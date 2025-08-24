@@ -49,12 +49,11 @@ public class EducaMais {
         }
 
         aluno_2.avaliarCurso(curso_1,2,"Horrivel!");
-        System.out.println("======================================");
-
+        System.out.println();
         System.out.println("====================Avaliações curso_1====================");
         curso_1.calcularpopularidade();
         for(Avaliacao a: curso_1.getAvaliacoes()){
-            System.out.println(a);
+            System.out.println("Aluno: " + a.getAlunoAutor().getNome() + " ," + "Comentario: " + a.getComentario() + " ," + "Nota: " + a.getNota());
         }
         System.out.println("===========================================================");
 
