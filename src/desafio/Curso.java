@@ -127,8 +127,27 @@ public class Curso {
     public void removeAvaliacao(Avaliacao avaliacao) {
         for(Avaliacao a : avaliacoes) {
             if(a.equals(avaliacao)) {
-                System.out.print("");
+                avaliacoes.remove(a);
             }
+
+            System.out.print("Essa avaliacao não está presente na lista");
         }
+    }
+
+    public void ativar(){
+        Status = true;
+
+    }
+
+    public void desativar(){
+        Status = false;
+    }
+
+    public void calcularpopularidade(){
+        int soma = 0;
+        for(Avaliacao a : avaliacoes) {
+            soma+= a.getNota();
+        }
+        System.out.println("Popularidade: " + soma);
     }
 }

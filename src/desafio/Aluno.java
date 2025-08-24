@@ -45,7 +45,8 @@ public class Aluno extends Pessoa{
     public void matricular(Curso curso){
         Matricula matricula = new Matricula(matriculas.size()+1,this,curso,new Date(),true);
         addMatricula(matricula);
-        //a fazer
+        curso.addMatricula(matricula);
+        System.out.print("Aluno matriculado com sucesso!");
 
 
     }

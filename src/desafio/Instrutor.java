@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Instrutor extends Pessoa{
     private List<Curso> cursosMinistrados = new ArrayList<>();
-    private List<Avaliacao> avaliacoesRecebidas = new ArrayList<>();
     private double salario;
 
     public Instrutor(){
@@ -25,8 +24,12 @@ public class Instrutor extends Pessoa{
         return cursosMinistrados;
     }
 
-    public List<Avaliacao> getAvaliacoesRecebidas() {
-        return avaliacoesRecebidas;
+    public void addCurso(Curso c){
+        cursosMinistrados.add(c);
+    }
+
+    public void removeCurso(Curso c){
+        cursosMinistrados.remove(c);
     }
 
     public double getSalario() {
