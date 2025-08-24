@@ -1,4 +1,4 @@
-package desafio;
+package com.educamais.desafio;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -85,7 +85,7 @@ public class Aluno extends Pessoa{
 
     public void addAvaliacao(Avaliacao avaliacao){
         if(avaliacoesFeitas.contains(avaliacao)){
-            System.out.print("Avaliação já está feita");
+            System.out.println("Avaliação já está feita");
         }else{
             avaliacoesFeitas.add(avaliacao);
         }

@@ -1,4 +1,4 @@
-package desafio;
+package com.educamais.desafio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,6 @@ public class Instrutor extends Pessoa{
 
     public Instrutor(){
 
-    }
-
-    public Instrutor(double salario) {
-        this.salario = salario;
     }
 
     public Instrutor(long id, String nome, String email, String senha, double salario) {

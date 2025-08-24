@@ -1,4 +1,4 @@
-package desafio;
+package com.educamais.desafio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,5 +133,18 @@ public class Curso {
             soma+= a.getNota();
         }
         System.out.println("Popularidade: " + soma + " estrelas recebidas");
+    }
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", nivelDificuldade=" + nivelDificuldade +
+                ", valorMatricula=" + valorMatricula +
+                ", status=" + status +
+                ", instrutor=" + instrutor.getNome() +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-package desafio;
+package com.educamais.desafio;
 
 public class Avaliacao {
     private long id;
@@ -65,8 +65,8 @@ public class Avaliacao {
                 "id=" + id +
                 ", nota=" + nota +
                 ", comentario='" + comentario + '\'' +
-                ", alunoAutor=" + alunoAutor +
-                ", curso=" + curso +
+                ", alunoAutor=" + alunoAutor.getNome() +
+                ", curso=" + curso.getTitulo()+
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package desafio;
+package com.educamais.desafio;
 
 public abstract class Pessoa {
     private long id;

@@ -1,4 +1,4 @@
-package desafio;
+package com.educamais.desafio;
 
 import java.util.Date;
 
@@ -55,8 +55,8 @@ public class Certificado {
     public String toString() {
         return "Certificado{" +
                 "id=" + id +
-                ", curso=" + curso +
-                ", aluno=" + aluno +
+                ", curso=" + curso.getTitulo() +
+                ", aluno=" + aluno.getNome() +
                 ", dataEmissao=" + dataEmissao +
                 '}';
     }

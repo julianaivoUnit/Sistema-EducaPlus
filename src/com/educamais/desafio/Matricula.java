@@ -1,4 +1,4 @@
-package desafio;
+package com.educamais.desafio;
 
 import java.util.Date;
 
