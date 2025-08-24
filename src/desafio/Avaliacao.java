@@ -58,4 +58,15 @@ public class Avaliacao {
     public void setCurso(Curso curso) {
         this.curso = curso;
     }
+
+    @Override
+    public String toString() {
+        return "Avaliacao{" +
+                "id=" + id +
+                ", nota=" + nota +
+                ", comentario='" + comentario + '\'' +
+                ", alunoAutor=" + alunoAutor +
+                ", curso=" + curso +
+                '}';
+    }
 }

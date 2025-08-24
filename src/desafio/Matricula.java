@@ -61,17 +61,16 @@ public class Matricula {
         this.status = status;
     }
 
-    public boolean Concluir(){
-        status = true;
-        return status;
+    public void concluir(){
+        status = false;
     }
 
     @Override
     public String toString() {
         return "Matricula{" +
                 "id=" + id +
-                ", aluno=" + aluno +
-                ", curso=" + curso +
+                ", aluno=" + aluno.getNome() +
+                ", curso=" + curso.getTitulo() +
                 ", dataMatricula=" + dataMatricula +
                 ", status=" + status +
                 '}';

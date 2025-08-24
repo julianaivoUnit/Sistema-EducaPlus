@@ -9,7 +9,7 @@ public class Curso {
     private String descricao;
     private int nivelDificuldade;
     private double valorMatricula;
-    private boolean Status;
+    private boolean status;
     private Instrutor instrutor;
     private List<Matricula> matriculas = new ArrayList<>();
     private List<Avaliacao> avaliacoes = new ArrayList<>();
@@ -24,7 +24,7 @@ public class Curso {
         this.descricao = descricao;
         this.nivelDificuldade = nivelDificuldade;
         this.valorMatricula = valorMatricula;
-        Status = status;
+        status = status;
         this.instrutor = instrutor;
     }
 
@@ -69,11 +69,11 @@ public class Curso {
     }
 
     public boolean isStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(boolean status) {
-        Status = status;
+        status = status;
     }
 
     public Instrutor getInstrutor() {
@@ -89,24 +89,17 @@ public class Curso {
     }
 
     public void addMatricula(Matricula matricula) {
-        for (Matricula m : matriculas) {
-            if(m.equals(matricula)) {
-                System.out.println("Matricula ja existente");
-            }
-
-            matriculas.add(matricula);
-            System.out.print("Matricula adicionado");
+        if(matriculas.contains(matricula)){
+            System.out.println("Matrícula já existente");
+            return;
         }
+        matriculas.add(matricula);
+        System.out.println("Matrícula adicionada!");
     }
 
-    public void removeMatricula(Matricula matricula) {
-        for (Matricula m : matriculas) {
-            if(m.equals(matricula)) {
-                matriculas.remove(m);
-            }
 
-            System.out.print("Matricula não está na lista");
-        }
+    public void removeMatricula(Matricula matricula) {
+        matriculas.remove(matricula);
     }
 
     public List<Avaliacao> getAvaliacoes() {
@@ -114,33 +107,24 @@ public class Curso {
     }
 
     public void addAvaliacao(Avaliacao avaliacao) {
-        for(Avaliacao a : avaliacoes) {
-            if(a.equals(avaliacao)) {
-                System.out.println("Avaliacao ja existente");
-            }
-
+        if(avaliacoes.contains(avaliacao)){
+            System.out.println("Avaliação já existe!");
+        }else{
             avaliacoes.add(avaliacao);
-            System.out.print("Avaliação adicionada");
         }
     }
 
     public void removeAvaliacao(Avaliacao avaliacao) {
-        for(Avaliacao a : avaliacoes) {
-            if(a.equals(avaliacao)) {
-                avaliacoes.remove(a);
-            }
-
-            System.out.print("Essa avaliacao não está presente na lista");
-        }
+        avaliacoes.remove(avaliacao);
     }
 
     public void ativar(){
-        Status = true;
+        status = true;
 
     }
 
     public void desativar(){
-        Status = false;
+        status = false;
     }
 
     public void calcularpopularidade(){
@@ -148,6 +132,6 @@ public class Curso {
         for(Avaliacao a : avaliacoes) {
             soma+= a.getNota();
         }
-        System.out.println("Popularidade: " + soma);
+        System.out.println("Popularidade: " + soma + " estrelas recebidas");
     }
 }

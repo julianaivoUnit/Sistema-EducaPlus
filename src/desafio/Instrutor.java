@@ -25,7 +25,9 @@ public class Instrutor extends Pessoa{
     }
 
     public void addCurso(Curso c){
-        cursosMinistrados.add(c);
+        if(cursosMinistrados.contains(c)){
+            System.out.print("esse curso já está aqui");
+        }
     }
 
     public void removeCurso(Curso c){
@@ -38,5 +40,10 @@ public class Instrutor extends Pessoa{
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public void criarCurso(String nome, String descricao, int dificuldade, double valor){
+        Curso curso = new Curso(cursosMinistrados.size()+1,nome,descricao,dificuldade,valor,true,this);
+        cursosMinistrados.add(curso);
     }
 }

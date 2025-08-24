@@ -22,31 +22,29 @@ public class Aluno extends Pessoa{
     }
 
     public void addMatricula(Matricula matricula){
-        for(Matricula m : matriculas){
-            if(m.equals(matricula)){
-                System.out.println("Matricula ja existe");
-            }
-
-            matriculas.add(matricula);
-            System.out.print("Aluno matriculado com a matriculas: " + matricula.getId());
+        if(matriculas.contains(matricula)){
+            System.out.println("Matrícula já existe");
+            return;
         }
+
+        matriculas.add(matricula);
+        System.out.println("Aluno matriculado com a matrícula: " + matricula.getId());
     }
 
     public void removeMatricula(Matricula matricula){
-        for(Matricula m : matriculas){
-            if(m.equals(matricula)){
-                matriculas.remove(m);
-            }
-
-            System.out.print("Matricula não está disponivel;");
+        if(matriculas.remove(matricula)){
+            System.out.println("Matrícula removida com sucesso");
+        } else {
+            System.out.println("Matrícula não está disponível");
         }
     }
+
 
     public void matricular(Curso curso){
         Matricula matricula = new Matricula(matriculas.size()+1,this,curso,new Date(),true);
         addMatricula(matricula);
         curso.addMatricula(matricula);
-        System.out.print("Aluno matriculado com sucesso!");
+        System.out.println("Aluno matriculado com sucesso!");
 
 
     }
@@ -56,14 +54,12 @@ public class Aluno extends Pessoa{
     }
 
     public void addCertificado(Certificado certificado){
-        for(Certificado c : certificados){
-            if(c.equals(certificado)){
-                System.out.println("Certificado ja existe");
-            }
-
-            certificados.add(certificado);
-            System.out.println("Certificado adicionado!");
+        if(certificados.contains(certificado)){
+            System.out.println("Certificado já existe");
+            return;
         }
+        certificados.add(certificado);
+        System.out.println("Certificado adicionado!");
     }
 
     public void removeCertificado(Certificado certificado){
@@ -77,13 +73,43 @@ public class Aluno extends Pessoa{
     }
 
     public void concluirCurso(Curso curso, Matricula matricula){
-
-
+        matricula.concluir();
+        curso.removeMatricula(matricula);
+        Certificado certificado = new Certificado(certificados.size()+1,curso,this,new Date());
+        certificados.add(certificado);
     }
 
     public List<Avaliacao> getAvaliacoesFeitas() {
         return avaliacoesFeitas;
     }
+
+    public void addAvaliacao(Avaliacao avaliacao){
+        if(avaliacoesFeitas.contains(avaliacao)){
+            System.out.print("Avaliação já está feita");
+        }else{
+            avaliacoesFeitas.add(avaliacao);
+        }
+    }
+
+    public void removeAvaliacao(Avaliacao avaliacao){
+        avaliacoesFeitas.remove(avaliacao);
+    }
+
+    public void avaliarCurso(Curso curso, int nota, String comentario){
+        if(nota < 0 || nota > 5){
+            System.out.println("Nota inválida!");
+            return;
+        }
+
+
+        Avaliacao avaliacao = new Avaliacao(avaliacoesFeitas.size()+1, nota, comentario, this, curso);
+        avaliacoesFeitas.add(avaliacao);
+        curso.addAvaliacao(avaliacao);
+
+        System.out.println("Curso avaliado com sucesso!");
+    }
+
+
 
 
 }
