@@ -2,6 +2,8 @@ package com.educamais.desafio;
 
 public class EducaMais {
     public static void main(String[] args) {
+        
+        //ALUNOS: ROQUE TAVARES & JULIANA SAMPAIO
 
         Instrutor instrutor_1 = new Instrutor(1L,"João","Joao@gmail.com","123456",1000.0);
 
